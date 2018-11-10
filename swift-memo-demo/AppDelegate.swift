@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  swift-memo-demo
 //
-//  Created by Manami Ichikawa on 2018/11/04.
-//  Copyright © 2018 Manami Ichikawa. All rights reserved.
+//  Created on 2018/11/04.
+//  Copyright © 2018 . All rights reserved.
 //
 
 import UIKit
@@ -15,7 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let firstVC = FolderListBuilder.build()
+        //NavigationControllerを使わない場合はrootにViewControllerをセット
+        let navigationController = UINavigationController(rootViewController: firstVC)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
         return true
     }
 

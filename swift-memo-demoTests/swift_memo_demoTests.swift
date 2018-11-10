@@ -2,8 +2,8 @@
 //  swift_memo_demoTests.swift
 //  swift-memo-demoTests
 //
-//  Created by Manami Ichikawa on 2018/11/04.
-//  Copyright © 2018 Manami Ichikawa. All rights reserved.
+//  Created on 2018/11/04.
+//  Copyright © 2018 . All rights reserved.
 //
 
 import XCTest

@@ -8,11 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		3861FAAF218E9F1A00EDF6FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861FAAE218E9F1A00EDF6FF /* AppDelegate.swift */; };
-		3861FAB1218E9F1A00EDF6FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861FAB0218E9F1A00EDF6FF /* ViewController.swift */; };
-		3861FAB4218E9F1A00EDF6FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861FAB2218E9F1A00EDF6FF /* Main.storyboard */; };
+		3861FAB1218E9F1A00EDF6FF /* FolderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861FAB0218E9F1A00EDF6FF /* FolderListViewController.swift */; };
+		3861FAB4218E9F1A00EDF6FF /* FolderListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861FAB2218E9F1A00EDF6FF /* FolderListViewController.storyboard */; };
 		3861FAB6218E9F1C00EDF6FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3861FAB5218E9F1C00EDF6FF /* Assets.xcassets */; };
 		3861FAB9218E9F1C00EDF6FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861FAB7218E9F1C00EDF6FF /* LaunchScreen.storyboard */; };
 		3861FAC4218E9F1C00EDF6FF /* swift_memo_demoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861FAC3218E9F1C00EDF6FF /* swift_memo_demoTests.swift */; };
+		3878D878218EADF200989C98 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3878D877218EADF200989C98 /* RealmSwift.framework */; };
+		3878D879218EADF200989C98 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3878D877218EADF200989C98 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3878D87C218EAE2E00989C98 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3878D87B218EAE2E00989C98 /* Realm.framework */; };
+		3878D87D218EAE2E00989C98 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3878D87B218EAE2E00989C98 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3878D885218EB30E00989C98 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3878D883218EB30E00989C98 /* RxSwift.framework */; };
+		3878D886218EB30E00989C98 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3878D883218EB30E00989C98 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3878D887218EB30E00989C98 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3878D884218EB30E00989C98 /* RxCocoa.framework */; };
+		3878D888218EB30E00989C98 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3878D884218EB30E00989C98 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3878D88F218EBB8200989C98 /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D88D218EBB8200989C98 /* FolderCell.swift */; };
+		3878D890218EBB8200989C98 /* FolderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3878D88E218EBB8200989C98 /* FolderCell.xib */; };
+		3878D892218EC31600989C98 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D891218EC31600989C98 /* ViewModelType.swift */; };
+		3878D894218EC38400989C98 /* FolderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D893218EC38400989C98 /* FolderListViewModel.swift */; };
+		3878D896218EC54700989C98 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D895218EC54700989C98 /* Folder.swift */; };
+		3878D898218EC62200989C98 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D897218EC62200989C98 /* Task.swift */; };
+		3878D89B218EC97F00989C98 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D89A218EC97F00989C98 /* RealmHelper.swift */; };
+		3878D89F218ECBB100989C98 /* FolderDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D89E218ECBB100989C98 /* FolderDao.swift */; };
+		3878D8A1218ECCD200989C98 /* TaskDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D8A0218ECCD200989C98 /* TaskDao.swift */; };
+		3878D8A3218ED22600989C98 /* FolderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D8A2218ED22600989C98 /* FolderService.swift */; };
+		3878D8A6218EFDB000989C98 /* Observable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D8A5218EFDB000989C98 /* Observable+Extension.swift */; };
+		3878D8A9218F0F4E00989C98 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D8A8218F0F4E00989C98 /* UIViewController+Extension.swift */; };
+		3878D8AB218F100B00989C98 /* UIAlartController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D8AA218F100B00989C98 /* UIAlartController+Extension.swift */; };
+		3878D8B1218F1B5200989C98 /* FolderListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D8B0218F1B5200989C98 /* FolderListRouter.swift */; };
+		3878D8B3218F1C1F00989C98 /* FolderListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3878D8B2218F1C1F00989C98 /* FolderListBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,17 +48,53 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3878D87A218EADF200989C98 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3878D888218EB30E00989C98 /* RxCocoa.framework in Embed Frameworks */,
+				3878D87D218EAE2E00989C98 /* Realm.framework in Embed Frameworks */,
+				3878D879218EADF200989C98 /* RealmSwift.framework in Embed Frameworks */,
+				3878D886218EB30E00989C98 /* RxSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3861FAAB218E9F1A00EDF6FF /* swift-memo-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-memo-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3861FAAE218E9F1A00EDF6FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3861FAB0218E9F1A00EDF6FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3861FAB3218E9F1A00EDF6FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3861FAB0218E9F1A00EDF6FF /* FolderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewController.swift; sourceTree = "<group>"; };
+		3861FAB3218E9F1A00EDF6FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FolderListViewController.storyboard; sourceTree = "<group>"; };
 		3861FAB5218E9F1C00EDF6FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3861FAB8218E9F1C00EDF6FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3861FABA218E9F1C00EDF6FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3861FABF218E9F1C00EDF6FF /* swift-memo-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-memo-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3861FAC3218E9F1C00EDF6FF /* swift_memo_demoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_memo_demoTests.swift; sourceTree = "<group>"; };
 		3861FAC5218E9F1C00EDF6FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3878D877218EADF200989C98 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		3878D87B218EAE2E00989C98 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		3878D883218EB30E00989C98 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		3878D884218EB30E00989C98 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		3878D88D218EBB8200989C98 /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
+		3878D88E218EBB8200989C98 /* FolderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FolderCell.xib; sourceTree = "<group>"; };
+		3878D891218EC31600989C98 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewModelType.swift; path = "swift-memo-demo/ViewModel/ViewModelType.swift"; sourceTree = SOURCE_ROOT; };
+		3878D893218EC38400989C98 /* FolderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewModel.swift; sourceTree = "<group>"; };
+		3878D895218EC54700989C98 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		3878D897218EC62200989C98 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		3878D89A218EC97F00989C98 /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		3878D89E218ECBB100989C98 /* FolderDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDao.swift; sourceTree = "<group>"; };
+		3878D8A0218ECCD200989C98 /* TaskDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDao.swift; sourceTree = "<group>"; };
+		3878D8A2218ED22600989C98 /* FolderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderService.swift; sourceTree = "<group>"; };
+		3878D8A5218EFDB000989C98 /* Observable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Extension.swift"; sourceTree = "<group>"; };
+		3878D8A8218F0F4E00989C98 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		3878D8AA218F100B00989C98 /* UIAlartController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlartController+Extension.swift"; sourceTree = "<group>"; };
+		3878D8B0218F1B5200989C98 /* FolderListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListRouter.swift; sourceTree = "<group>"; };
+		3878D8B2218F1C1F00989C98 /* FolderListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +102,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3878D887218EB30E00989C98 /* RxCocoa.framework in Frameworks */,
+				3878D87C218EAE2E00989C98 /* Realm.framework in Frameworks */,
+				3878D878218EADF200989C98 /* RealmSwift.framework in Frameworks */,
+				3878D885218EB30E00989C98 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +125,10 @@
 				3861FAAD218E9F1A00EDF6FF /* swift-memo-demo */,
 				3861FAC2218E9F1C00EDF6FF /* swift-memo-demoTests */,
 				3861FAAC218E9F1A00EDF6FF /* Products */,
+				3878D884218EB30E00989C98 /* RxCocoa.framework */,
+				3878D883218EB30E00989C98 /* RxSwift.framework */,
+				3878D877218EADF200989C98 /* RealmSwift.framework */,
+				3878D87B218EAE2E00989C98 /* Realm.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +144,17 @@
 		3861FAAD218E9F1A00EDF6FF /* swift-memo-demo */ = {
 			isa = PBXGroup;
 			children = (
+				3878D8AC218F153900989C98 /* Builder */,
+				3878D899218EC95F00989C98 /* Utility */,
 				3861FAAE218E9F1A00EDF6FF /* AppDelegate.swift */,
-				3861FAB0218E9F1A00EDF6FF /* ViewController.swift */,
-				3861FAB2218E9F1A00EDF6FF /* Main.storyboard */,
-				3861FAB5218E9F1C00EDF6FF /* Assets.xcassets */,
-				3861FAB7218E9F1C00EDF6FF /* LaunchScreen.storyboard */,
-				3861FABA218E9F1C00EDF6FF /* Info.plist */,
+				3878D889218EB40C00989C98 /* Service */,
+				3878D882218EAF7500989C98 /* Model */,
+				3878D881218EAF6100989C98 /* ViewModel */,
+				3878D8AF218F1A9C00989C98 /* Rooter */,
+				3878D88A218EB41900989C98 /* ViewController */,
+				3878D880218EAF5B00989C98 /* View */,
+				3878D88B218EB77C00989C98 /* Resource */,
+				3878D88C218EB78500989C98 /* Support */,
 			);
 			path = "swift-memo-demo";
 			sourceTree = "<group>";
@@ -96,6 +168,128 @@
 			path = "swift-memo-demoTests";
 			sourceTree = "<group>";
 		};
+		3878D880218EAF5B00989C98 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3878D88D218EBB8200989C98 /* FolderCell.swift */,
+				3878D88E218EBB8200989C98 /* FolderCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3878D881218EAF6100989C98 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3878D891218EC31600989C98 /* ViewModelType.swift */,
+				3878D893218EC38400989C98 /* FolderListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3878D882218EAF7500989C98 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3878D89D218ECB6000989C98 /* Task */,
+				3878D89C218ECB5700989C98 /* Folder */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3878D889218EB40C00989C98 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3878D8A2218ED22600989C98 /* FolderService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		3878D88A218EB41900989C98 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3861FAB0218E9F1A00EDF6FF /* FolderListViewController.swift */,
+				3861FAB2218E9F1A00EDF6FF /* FolderListViewController.storyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		3878D88B218EB77C00989C98 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3861FAB7218E9F1C00EDF6FF /* LaunchScreen.storyboard */,
+				3861FAB5218E9F1C00EDF6FF /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3878D88C218EB78500989C98 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				3861FABA218E9F1C00EDF6FF /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		3878D899218EC95F00989C98 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				38A4C6BB2196D9F400046211 /* DB */,
+				3878D8A4218EFD9A00989C98 /* Extension */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		3878D89C218ECB5700989C98 /* Folder */ = {
+			isa = PBXGroup;
+			children = (
+				3878D89E218ECBB100989C98 /* FolderDao.swift */,
+				3878D895218EC54700989C98 /* Folder.swift */,
+			);
+			path = Folder;
+			sourceTree = "<group>";
+		};
+		3878D89D218ECB6000989C98 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				3878D897218EC62200989C98 /* Task.swift */,
+				3878D8A0218ECCD200989C98 /* TaskDao.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		3878D8A4218EFD9A00989C98 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3878D8A5218EFDB000989C98 /* Observable+Extension.swift */,
+				3878D8A8218F0F4E00989C98 /* UIViewController+Extension.swift */,
+				3878D8AA218F100B00989C98 /* UIAlartController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3878D8AC218F153900989C98 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				3878D8B2218F1C1F00989C98 /* FolderListBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		3878D8AF218F1A9C00989C98 /* Rooter */ = {
+			isa = PBXGroup;
+			children = (
+				3878D8B0218F1B5200989C98 /* FolderListRouter.swift */,
+			);
+			path = Rooter;
+			sourceTree = "<group>";
+		};
+		38A4C6BB2196D9F400046211 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				3878D89A218EC97F00989C98 /* RealmHelper.swift */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,6 +300,8 @@
 				3861FAA7218E9F1A00EDF6FF /* Sources */,
 				3861FAA8218E9F1A00EDF6FF /* Frameworks */,
 				3861FAA9218E9F1A00EDF6FF /* Resources */,
+				3878D87A218EADF200989C98 /* Embed Frameworks */,
+				3878D87F218EAE7900989C98 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -179,7 +375,8 @@
 			files = (
 				3861FAB9218E9F1C00EDF6FF /* LaunchScreen.storyboard in Resources */,
 				3861FAB6218E9F1C00EDF6FF /* Assets.xcassets in Resources */,
-				3861FAB4218E9F1A00EDF6FF /* Main.storyboard in Resources */,
+				3861FAB4218E9F1A00EDF6FF /* FolderListViewController.storyboard in Resources */,
+				3878D890218EBB8200989C98 /* FolderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,13 +389,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3878D87F218EAE7900989C98 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3861FAA7218E9F1A00EDF6FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3861FAB1218E9F1A00EDF6FF /* ViewController.swift in Sources */,
+				3878D8A3218ED22600989C98 /* FolderService.swift in Sources */,
+				3878D8B3218F1C1F00989C98 /* FolderListBuilder.swift in Sources */,
+				3878D8B1218F1B5200989C98 /* FolderListRouter.swift in Sources */,
+				3878D8A9218F0F4E00989C98 /* UIViewController+Extension.swift in Sources */,
+				3878D892218EC31600989C98 /* ViewModelType.swift in Sources */,
+				3861FAB1218E9F1A00EDF6FF /* FolderListViewController.swift in Sources */,
 				3861FAAF218E9F1A00EDF6FF /* AppDelegate.swift in Sources */,
+				3878D8A1218ECCD200989C98 /* TaskDao.swift in Sources */,
+				3878D89F218ECBB100989C98 /* FolderDao.swift in Sources */,
+				3878D8A6218EFDB000989C98 /* Observable+Extension.swift in Sources */,
+				3878D894218EC38400989C98 /* FolderListViewModel.swift in Sources */,
+				3878D88F218EBB8200989C98 /* FolderCell.swift in Sources */,
+				3878D89B218EC97F00989C98 /* RealmHelper.swift in Sources */,
+				3878D898218EC62200989C98 /* Task.swift in Sources */,
+				3878D8AB218F100B00989C98 /* UIAlartController+Extension.swift in Sources */,
+				3878D896218EC54700989C98 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,12 +455,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3861FAB2218E9F1A00EDF6FF /* Main.storyboard */ = {
+		3861FAB2218E9F1A00EDF6FF /* FolderListViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3861FAB3218E9F1A00EDF6FF /* Base */,
 			);
-			name = Main.storyboard;
+			name = FolderListViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		3861FAB7218E9F1C00EDF6FF /* LaunchScreen.storyboard */ = {
@@ -361,7 +595,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "swift-memo-demo/Info.plist";
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "swift-memo-demo/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +617,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "swift-memo-demo/Info.plist";
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "swift-memo-demo/Support/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

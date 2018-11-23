@@ -21,7 +21,8 @@ enum Action: CustomStringConvertible {
     }
 }
 
-final class FolderListViewModel {
+//TODO: プロトコルに準拠
+final class FolderListViewModel: ViewModelType {
 
     private let service: FolderService
     private let router: FolderListRouter
@@ -38,16 +39,22 @@ final class FolderListViewModel {
     }
     
     struct Output {
-        let didCreateFolder: Driver<()>
+        let didCreateFolder: Observable<()>
         let folders: Observable<[Folder]>
     }
     
+    //TODO: selfのアンラップとベタがき修正
     func transform(input: Input) -> Output {
-        // Observable<Action>
+
         let isFolderTitleConfirmed = input.createFolderTrigger
             .asObservable()
             .flatMap { [weak self] aaa  -> Observable<(Action, String?)> in
-                return (self?.router.promptFor("タイトルを入力してください", cancelAction: Action.Cancel("Cancel"), actions: [Action.Confirm("OK")], needText: true))!
+                guard let _self = self else {
+                    return Observable.just((Action.Cancel("Cancel"), ""))
+                }
+                return (_self.router.promptFor("タイトルを入力してください",
+                                                cancelAction: Action.Cancel("Cancel"),
+                                                actions: [Action.Confirm("OK")]))
             }
             .flatMap{ (action, text) -> Observable<String?> in
                 switch action {
@@ -57,37 +64,33 @@ final class FolderListViewModel {
                 case .Confirm(let confirm):
                     print("\(confirm): \(String(describing: text))")
                     return Observable.just(text)
-                    // TODO: textFieldどうやって添付する
-                    //self?.service.add(title: confirm)
                 }
                 
         }
         
         let didCreateFolder = isFolderTitleConfirmed
-            .flatMap { [weak self] result -> Driver<()> in
+            .flatMap { [weak self] result -> Observable<()> in
                 guard let _self = self else {
-                    return Driver.empty()
+                    return Observable.empty()
                 }
                 
                 if let result = result {
-                    return _self.service.add(title: result).asDriverOnErrorJustComplete()
-                    
+                    return _self.service.add(title: result)
                 } else {
-                    return Driver.empty()
+                    return Observable.empty()
                 }
         }
         
-        let folders = input.refreshTrigger
-            .flatMap { [weak self] _ -> Observable<[Folder]> in
+        let folders: Observable<()> = Observable.merge(input.refreshTrigger, didCreateFolder)
+        
+        let refreshedFolders =  folders.flatMap { [weak self] _ -> Observable<[Folder]> in
                 guard let _self = self else {
                     return Observable.empty()
                 }
                 return _self.service.fetchFolders()
         }
         
-    return Output(didCreateFolder: didCreateFolder.asDriverOnErrorJustComplete(),
-                  folders: folders)
+        return Output(didCreateFolder: didCreateFolder,
+                      folders: refreshedFolders)
     }
-    
-    
 }

@@ -11,6 +11,7 @@ import RxSwift
 
 import RealmSwift
 
+// TODO: Observableを返却するように修正
 final class RealmDaoHelper <T: RealmSwift.Object> {
     let realm: Realm
     
@@ -22,9 +23,7 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
         }
     }
     
-    /**
-     * 新規主キー発行
-     */
+    /// プライマリキーを取得
     func newId() -> Int? {
         guard let key = T.primaryKey() else {
             //primaryKey未設定
@@ -39,9 +38,7 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
         }
     }
     
-    /**
-     * 全件取得
-     */
+    /// 全件取得
     func findAll() -> Observable<Results<T>> {
         return Observable.just(realm.objects(T.self))
     }
@@ -59,9 +56,7 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
 //        return findAll().first
 //    }
     
-    /**
-     * 指定キーのレコードを取得
-     */
+    /// 指定キーのレコード取得
     func findFirst(key: AnyObject) -> T? {
         return realm.object(ofType: T.self, forPrimaryKey: key)
     }
@@ -73,9 +68,8 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
 //        return findAll().last
 //    }
     
-    /**
-     * レコード追加を取得
-     */
+
+    /// レコード追加を取得
     func add(data: T) -> Observable<()> {
         do {
             try realm.write {
@@ -92,6 +86,8 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
      * T: RealmSwift.Object で primaryKey()が実装されている時のみ有効
      */
     @discardableResult
+    
+    /// アップデート
     func update(data: T, block:(() -> Void)? = nil) -> Bool {
         do {
             try realm.write {
@@ -105,9 +101,7 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
         return false
     }
     
-    /**
-     * レコード削除
-     */
+    /// 削除
     func delete(data: T) {
         do {
             try realm.write {
@@ -118,7 +112,7 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
         }
     }
     
-    
+    /// 全件削除
     func deleteAll(key: AnyObject, value: AnyObject) {
         
         let objs = findAll(key: key, value: value)

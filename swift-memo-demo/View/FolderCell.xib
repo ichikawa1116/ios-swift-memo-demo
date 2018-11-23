@@ -38,6 +38,7 @@
             <connections>
                 <outlet property="titleLabel" destination="WCZ-Sb-y32" id="j5t-zh-Zox"/>
             </connections>
+            <point key="canvasLocation" x="52.799999999999997" y="105.24737631184409"/>
         </tableViewCell>
     </objects>
 </document>

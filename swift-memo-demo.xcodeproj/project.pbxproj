@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38215A172197AD4600E1D526 /* FolderListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38215A162197AD4600E1D526 /* FolderListDataProvider.swift */; };
 		3861FAAF218E9F1A00EDF6FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861FAAE218E9F1A00EDF6FF /* AppDelegate.swift */; };
 		3861FAB1218E9F1A00EDF6FF /* FolderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3861FAB0218E9F1A00EDF6FF /* FolderListViewController.swift */; };
 		3861FAB4218E9F1A00EDF6FF /* FolderListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3861FAB2218E9F1A00EDF6FF /* FolderListViewController.storyboard */; };
@@ -66,6 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38215A162197AD4600E1D526 /* FolderListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListDataProvider.swift; sourceTree = "<group>"; };
 		3861FAAB218E9F1A00EDF6FF /* swift-memo-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-memo-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3861FAAE218E9F1A00EDF6FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3861FAB0218E9F1A00EDF6FF /* FolderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		3878D880218EAF5B00989C98 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				38215A162197AD4600E1D526 /* FolderListDataProvider.swift */,
 				3878D88D218EBB8200989C98 /* FolderCell.swift */,
 				3878D88E218EBB8200989C98 /* FolderCell.xib */,
 			);
@@ -426,6 +429,7 @@
 				3861FAAF218E9F1A00EDF6FF /* AppDelegate.swift in Sources */,
 				3878D8A1218ECCD200989C98 /* TaskDao.swift in Sources */,
 				3878D89F218ECBB100989C98 /* FolderDao.swift in Sources */,
+				38215A172197AD4600E1D526 /* FolderListDataProvider.swift in Sources */,
 				3878D8A6218EFDB000989C98 /* Observable+Extension.swift in Sources */,
 				3878D894218EC38400989C98 /* FolderListViewModel.swift in Sources */,
 				3878D88F218EBB8200989C98 /* FolderCell.swift in Sources */,

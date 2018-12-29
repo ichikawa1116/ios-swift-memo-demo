@@ -24,11 +24,11 @@ enum Action: CustomStringConvertible {
 //TODO: プロトコルに準拠
 final class FolderListViewModel: ViewModelType {
 
-    private let service: FolderService
+    private let useCase: FolderUseCase
     private let router: FolderListRouter
 
-    init(service: FolderService, router: FolderListRouter) {
-        self.service = service
+    init(useCase: FolderUseCase, router: FolderListRouter) {
+        self.useCase = useCase
         self.router = router
     }
     
@@ -43,9 +43,12 @@ final class FolderListViewModel: ViewModelType {
         let folders: Observable<[Folder]>
     }
     
+    func tapFolder(folder: Folder){
+        router.goToNext(folder: folder)
+    }
+    
     //TODO: selfのアンラップとベタがき修正
     func transform(input: Input) -> Output {
-
         let isFolderTitleConfirmed = input.createFolderTrigger
             .asObservable()
             .flatMap { [weak self] aaa  -> Observable<(Action, String?)> in
@@ -75,7 +78,7 @@ final class FolderListViewModel: ViewModelType {
                 }
                 
                 if let result = result {
-                    return _self.service.add(title: result)
+                    return _self.useCase.add(title: result)
                 } else {
                     return Observable.empty()
                 }
@@ -87,7 +90,7 @@ final class FolderListViewModel: ViewModelType {
                 guard let _self = self else {
                     return Observable.empty()
                 }
-                return _self.service.fetchFolders()
+                return _self.useCase.fetchFolders()
         }
         
         return Output(didCreateFolder: didCreateFolder,

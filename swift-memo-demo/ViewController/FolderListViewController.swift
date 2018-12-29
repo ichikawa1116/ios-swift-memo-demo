@@ -21,7 +21,6 @@ class FolderListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupTable()
         bindViewModel()
     }
@@ -29,7 +28,35 @@ class FolderListViewController: UIViewController {
     func setupTable() {
         folderListTableView.delegate = self
         folderListTableView.dataSource = provider
-        folderListTableView.register (UINib(nibName: String(describing: FolderCell.self), bundle: nil),forCellReuseIdentifier:"FolderCell")
+        folderListTableView.register (UINib(nibName: String(describing: FolderCell.self),
+                                            bundle: nil),
+                                      forCellReuseIdentifier:"FolderCell")
+    }
+    
+    func bindViewModel() {
+        let refreshTrigger = rx.sentMessage(#selector(viewWillAppear)).take(1).mapToVoid()
+        let createFolderTrigger = addFolderButton.rx.tap.asDriver()
+        let input = FolderListViewModel.Input(createFolderTrigger: createFolderTrigger,
+                                              refreshTrigger: refreshTrigger)
+        
+        let output = viewModel.transform(input: input)
+        /*カスタムセルを使用しているため、cellTypeをセットする必要がある。
+         下記の方法はtableViewにバインドするシンプルな方法だが、ヘッダーや編集モードの設定ができない*/
+        
+        //MARK: memo: シンプルなバインド方法
+        
+        //  output.folders.bind(to: folderListTableView.rx.items(cellIdentifier: "FolderCell", cellType: FolderCell.self)){ _, element, cell in
+        //  cell.titleLabel.text = element.title
+        //  }.disposed(by: disposeBag)
+        
+        //output.folders.bind(to: provider.items)
+        
+        
+        output.folders.subscribe(onNext: {[weak self] items in
+            self?.provider.items = items
+            self?.folderListTableView.reloadData()
+        }).disposed(by: disposeBag)
+        
         
         folderListTableView
             .rx.setDelegate(self)
@@ -40,39 +67,14 @@ class FolderListViewController: UIViewController {
             .rx
             .itemSelected
             .subscribe(onNext: { [weak self] indexPath in
-                self?.folderListTableView.deselectRow(at: indexPath, animated: true)
+                guard let _self = self else {
+                    return
+                }
+                // TODO: セルタップをストリームで管理するか
+                _self.viewModel.tapFolder(folder: (_self.provider.items[indexPath.row]))
+                _self.folderListTableView.deselectRow(at: indexPath, animated: true)
+                
             }).disposed(by: disposeBag)
-
-    }
-    
-    func bindViewModel() {
-        let refreshTrigger = rx.sentMessage(#selector(viewWillAppear)).take(1).mapToVoid()
-        let createFolderTrigger = addFolderButton.rx.tap.asDriver()
-        let input = FolderListViewModel.Input(createFolderTrigger: createFolderTrigger,
-                                              refreshTrigger: refreshTrigger)
-        
-        let output = viewModel.transform(input: input)
-        
-//        output.didCreateFolder.subscribe(onNext:{
-//            print("folder is created")
-//        }).disposed(by: disposeBag)
-        
-            /*カスタムセルを使用しているため、cellTypeをセットする必要がある。
-             下記の方法はtableViewにバインドするシンプルな方法だが、ヘッダーや編集モードの設定ができない*/
-        //MARK: memo: シンプルなバインド方法
-//        output.folders.bind(to: folderListTableView.rx.items(cellIdentifier: "FolderCell", cellType: FolderCell.self)){ _, element, cell in
-//
-//           cell.titleLabel.text = element.title
-//        }.disposed(by: disposeBag)
-        
-        //output.folders.bind(to: provider.items)
-        
-        
-        output.folders.subscribe(onNext: {[weak self] items in
-            self?.provider.items = items
-            self?.folderListTableView.reloadData()
-        }).disposed(by: disposeBag)
-        
     }
     
     func inject(viewModel: FolderListViewModel){

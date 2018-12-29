@@ -11,7 +11,7 @@ import RxSwift
 import UIKit
 
 protocol FolderListRouter {
-    //func goToNext()
+    func goToNext(folder: Folder)
     
     func promptFor<Action: CustomStringConvertible>(_ message: String,
                                                     cancelAction: Action,
@@ -20,10 +20,15 @@ protocol FolderListRouter {
 
 class FolderListRouterImpl: FolderListRouter {
     
+    
     private weak var vc: FolderListViewController?
     
     init(_ viewController: FolderListViewController) {
         vc = viewController
+    }
+    
+    func goToNext(folder: Folder) {
+        self.vc?.navigationController?.pushViewController(MemoListBuilder.build(folder: folder), animated: true)
     }
     
     func promptFor<Action : CustomStringConvertible>(_ message: String,

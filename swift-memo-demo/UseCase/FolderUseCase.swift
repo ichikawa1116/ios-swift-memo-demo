@@ -1,5 +1,5 @@
 //
-//  FolderService.swift
+//  FolderUseCase.swift
 //  swift-memo-demo
 //
 //  Created on 2018/11/04.
@@ -9,19 +9,19 @@
 import Foundation
 import RxSwift
 
-protocol FolderService {
+protocol FolderUseCase {
     
     func add(title: String) -> Observable<()>
     
     func fetchFolders() -> Observable<[Folder]>
 }
 
-struct FolderServiceImpl: FolderService {
+struct FolderUseCaseImpl: FolderUseCase {
     
-    private var dao: FolderDao!
+    private var repository: FolderRepository
     
-    init(dao: FolderDao) {
-        self.dao = dao
+    init(repository: FolderRepository) {
+        self.repository = repository
     }
     
     /// フォルダを追加
@@ -29,13 +29,13 @@ struct FolderServiceImpl: FolderService {
     /// - Parameter title: フォルダのタイトル
     /// - Returns: フォルダの追加完了
     func add(title: String) -> Observable<()> {
-        return dao.add(title: title)
+        return repository.add(title: title)
     }
     
     /// すべてのメモを取得する
     ///
     /// - Returns: フォルダ一覧
     func fetchFolders() -> Observable<[Folder]> {
-        return dao.fetchFolders()
+        return repository.fetch()
     }
 }

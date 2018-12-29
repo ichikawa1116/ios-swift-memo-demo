@@ -17,7 +17,7 @@ struct FolderListBuilder {
         
         let viewController = storyboard.instantiateViewController(withIdentifier: "FolderListViewController") as! FolderListViewController
         let router = FolderListRouterImpl(viewController)
-        let presenter = FolderListViewModel(service:FolderServiceImpl(dao: FolderDaoImpl()) ,router: router)
+        let presenter = FolderListViewModel(useCase:FolderUseCaseImpl(repository: FolderRepositoryImpl(dataStore: FolderDBImpl())) ,router: router)
         viewController.inject(viewModel: presenter)
         
         

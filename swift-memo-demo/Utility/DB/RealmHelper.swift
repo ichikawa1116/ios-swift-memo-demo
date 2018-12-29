@@ -32,6 +32,7 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
         
         do {
             let realm = try Realm()
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
             return (realm.objects(T.self).max(ofProperty: key) as Int? ?? 0) + 1
         } catch let error {
             fatalError(error.localizedDescription)
@@ -57,28 +58,46 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
 //    }
     
     /// 指定キーのレコード取得
-    func findFirst(key: AnyObject) -> T? {
-        return realm.object(ofType: T.self, forPrimaryKey: key)
+    func findFirstObservable(key: AnyObject) -> Observable<T?> {
+        return Observable.create { observer in
+            do {
+                try self.realm.write {
+                    let objects = self.realm.object(
+                        ofType: T.self,
+                        forPrimaryKey: key)
+                    observer.onNext(objects)
+                    observer.onCompleted()
+                }
+            } catch let error as NSError {
+                print(error.description)
+                observer.onError(error)
+            }
+            return Disposables.create()
+        }
     }
     
-    /**
-     * 最後のレコードを取得
-     */
-//    func findLast() -> T? {
-//        return findAll().last
-//    }
+    func findFirst(key: AnyObject) -> T? {
+        return self.realm.object(ofType: T.self, forPrimaryKey: key)
+    }
     
-
+    
     /// レコード追加を取得
     func add(data: T) -> Observable<()> {
-        do {
-            try realm.write {
-                realm.add(data)
+        return Observable.create { observer in
+            do {
+                try self.realm.write {
+                    self.realm.add(data)
+                    
+                }
+                try self.realm.commitWrite()
+                observer.onNext(())
+                observer.onCompleted()
+            } catch let error as NSError {
+                print("エラー\(error.description)")
+                observer.onError(error)
             }
-            return Observable.just(())
-        } catch let error as NSError {
-            print(error.description)
-            return Observable.error(error)
+            //self.realm.cancelWrite()
+            return Disposables.create()
         }
     }
     
@@ -86,19 +105,30 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
      * T: RealmSwift.Object で primaryKey()が実装されている時のみ有効
      */
     @discardableResult
-    
     /// アップデート
-    func update(data: T, block:(() -> Void)? = nil) -> Bool {
-        do {
-            try realm.write {
-                block?()
-                realm.add(data, update: true)
+    func update(data: T, block:(() -> Void)? = nil) -> Observable<()> {
+        return Observable.create { observer in
+            do {
+                // TODO: 同じスレッド内ですでに書き込みトランザクションが開始している場合に
+                //       例外が発生。　改善策を検討中
+                if (self.realm.isInWriteTransaction) {
+                    try self.realm.commitWrite()
+                }
+                try self.realm.write {
+                    block?()
+                    self.realm.add(data, update: true)
+                    try self.realm.commitWrite()
+                }
+                observer.onNext(())
+                
+                observer.onCompleted()
+            } catch let error as NSError {
+                print(error.description)
+                observer.onError(error)
             }
-            return true
-        } catch let error as NSError {
-            print(error.description)
+            return Disposables.create()
         }
-        return false
+            
     }
     
     /// 削除
@@ -114,7 +144,6 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
     
     /// 全件削除
     func deleteAll(key: AnyObject, value: AnyObject) {
-        
         let objs = findAll(key: key, value: value)
         
         do {

@@ -87,16 +87,14 @@ final class RealmDaoHelper <T: RealmSwift.Object> {
             do {
                 try self.realm.write {
                     self.realm.add(data)
-                    
+                    try self.realm.commitWrite()
                 }
-                try self.realm.commitWrite()
                 observer.onNext(())
                 observer.onCompleted()
             } catch let error as NSError {
                 print("エラー\(error.description)")
                 observer.onError(error)
             }
-            //self.realm.cancelWrite()
             return Disposables.create()
         }
     }

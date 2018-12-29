@@ -2,9 +2,9 @@
 //  MemoListBuilder.swift
 //  swift-memo-demo
 //
-//  Created by Manami Ichikawa on 2018/11/23.
+//  Created on 2018/11/23.
 
-//  Copyright © 2018 Manami Ichikawa. All rights reserved.
+//  Copyright © 2018 . All rights reserved.
 //
 
 import Foundation
@@ -18,11 +18,17 @@ struct MemoListBuilder {
         
         let viewController = storyboard.instantiateViewController(withIdentifier: "MemoListViewController") as! MemoListViewController
         let router = MemoListRouterImpl(viewController)
-        let viewModel = MemoListViewModel(saveMemoUseCase: SaveMemoUseCaseImpl(memoRepository: MemoRepositoryImpl( dataStore: MemoDataStoreDBImpl()), folderRepository: FolderRepositoryImpl(dataStore: FolderDBImpl())),
-                                          fetchMemoUseCase: FetchMemoUseCaseImpl(repository: FolderRepositoryImpl(dataStore: FolderDBImpl())),
-                                          folder: folder,
-                                          router: router
-                                          )
+        let viewModel = MemoListViewModel(
+            saveMemoUseCase: SaveMemoUseCaseImpl(
+                memoRepository: MemoRepositoryImpl(
+                    dataStore: MemoDataStoreDBImpl()),
+                folderRepository: FolderRepositoryImpl(
+                    dataStore: FolderDBImpl())),
+            fetchMemoUseCase: FetchMemoUseCaseImpl(
+                repository: FolderRepositoryImpl(
+                    dataStore: FolderDBImpl())),
+            folder: folder,
+            router: router)
                                                                         
             
 //            MemoRepositoryImpl(dataStore: MemoDataStoreDBImpl())),

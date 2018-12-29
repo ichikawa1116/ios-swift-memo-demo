@@ -2,8 +2,8 @@
 //  FolderDataStore.swift
 //  swift-memo-demo
 //
-//  Created by Manami Ichikawa on 2018/12/08.
-//  Copyright © 2018 Manami Ichikawa. All rights reserved.
+//  Created on 2018/12/08.
+//  Copyright © 2018 . All rights reserved.
 //
 
 import Foundation
@@ -12,10 +12,12 @@ import RxSwift
 protocol FolderDataStore {
     
     func add(title: String) -> Observable<()>
-    func fetchFolders() -> Observable<[Folder]>
-    func fetchMemos(folderID: Int) -> Observable<[Memo]>
-    func update(folder: Folder) -> Observable<()>
     
+    func fetchFolders() -> Observable<[Folder]>
+    
+    func fetchMemos(folderID: Int) -> Observable<[Memo]>
+    
+    func update(folder: Folder) -> Observable<()>
 }
 
 // TODO: findFirstをメソッドをObservableで返す

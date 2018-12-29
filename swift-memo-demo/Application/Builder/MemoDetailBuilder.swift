@@ -2,8 +2,8 @@
 //  MemoDetailBuilder.swift
 //  swift-memo-demo
 //
-//  Created by Manami Ichikawa on 2018/11/24.
-//  Copyright © 2018 Manami Ichikawa. All rights reserved.
+//  Created on 2018/11/24.
+//  Copyright © 2018 . All rights reserved.
 //
 
 import Foundation
@@ -16,10 +16,14 @@ struct MemoDetailBuilder {
         
         let viewController = storyboard.instantiateViewController(withIdentifier: "MemoDetailViewController") as! MemoDetailViewController
         let router = MemoDetailRouterImpl(viewController)
-        let viewModel = MemoDetailViewModel(useCase: SaveMemoUseCaseImpl(memoRepository: MemoRepositoryImpl(dataStore: MemoDataStoreDBImpl()),
-                                                                         folderRepository: FolderRepositoryImpl(dataStore: FolderDBImpl())),
-                                            folder: folder,
-                                            router: router)
+        let viewModel = MemoDetailViewModel(
+            useCase: SaveMemoUseCaseImpl(
+                memoRepository: MemoRepositoryImpl(
+                    dataStore: MemoDataStoreDBImpl()),
+                folderRepository: FolderRepositoryImpl(
+                    dataStore: FolderDBImpl())),
+            folder: folder,
+            router: router)
         
         viewController.inject(viewModel: viewModel)
         return viewController

@@ -17,12 +17,13 @@ struct FolderListBuilder {
         
         let viewController = storyboard.instantiateViewController(withIdentifier: "FolderListViewController") as! FolderListViewController
         let router = FolderListRouterImpl(viewController)
-        let presenter = FolderListViewModel(useCase:FolderUseCaseImpl(repository: FolderRepositoryImpl(dataStore: FolderDBImpl())) ,router: router)
+        let presenter = FolderListViewModel(
+            useCase:FolderUseCaseImpl(repository:
+                FolderRepositoryImpl(
+                    dataStore: FolderDBImpl())),
+            router: router)
         viewController.inject(viewModel: presenter)
-        
-        
-//        let mainVC = storyboard.instantiateViewControllerWithIdentifier("MainViewController") as! MainViewController
-        
+ 
         return viewController
     }
 }

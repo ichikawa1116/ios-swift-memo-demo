@@ -2,8 +2,8 @@
 //  MemoDetailUseCase.swift
 //  swift-memo-demo
 //
-//  Created by Manami Ichikawa on 2018/11/26.
-//  Copyright © 2018 Manami Ichikawa. All rights reserved.
+//  Created on 2018/11/26.
+//  Copyright © 2018 . All rights reserved.
 //
 
 import Foundation
@@ -36,7 +36,9 @@ struct SaveMemoUseCaseImpl: SaveMemoUseCase {
         
         let components = separateTitleFromMemo(memo: memo)
         
-        return memoRepository.add(title: components.title, contents: components.contents)
+        return memoRepository.add(
+            title: components.title,
+            contents: components.contents)
             .flatMap { memoId -> Observable<()> in
                 return self.memoRepository.findBy(memoId: memoId)
                     .flatMap { memo -> Observable<()> in
